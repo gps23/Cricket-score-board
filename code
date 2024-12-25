@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+// Structure for player information struct Player {
+char name[50];     int runsScored;
+int ballsFaced;
+// You can add more statistics as needed (e.g., wickets, strike rate, etc.)
+};
+// Structure for the cricket scoreboard struct Scoreboard {     int totalOvers;     int currentOver;
+struct Player players[11]; // Assuming 11 players in a team
+};
+// Initialize a player with their name
+void initializePlayer(struct Player *player, const char *name) {     strcpy(player->name, name);     player->runsScored = 0;
+player->ballsFaced = 0;
+// Initialize other statistics if needed
+}
+// Function to update the score when a player scores runs void playerScoresRuns(struct Player *player, int runs) {     player->runsScored += runs;     player->ballsFaced++;
+// Update other statistics as required
+}
+}
+int main() {
+struct Scoreboard matchScoreboard;     matchScoreboard.totalOvers = 50; // Assuming an ODI match
+matchScoreboard.currentOver = 0;
+// Initialize players     for (int i = 0; i < 11; i++) {
+        char playerName[50];
+        sprintf(playerName, "Player %d", i+1);         initializePlayer(&matchScoreboard.players[i], playerName);
+    }
+    // Simulate a scenario where Player 1 scores 4 runs     playerScoresRuns(&matchScoreboard.players[0], 4);
+    // Display the current score of Player 1     printf("Player Name: %s\nRuns Scored: %d\nBalls
+Faced: %d\n", 
+        matchScoreboard.players[0].name,
+matchScoreboard.players[0].runsScored, matchScoreboard.players[0].ballsFaced);
+    return 0;
+
